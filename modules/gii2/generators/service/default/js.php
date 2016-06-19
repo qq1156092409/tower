@@ -1,0 +1,45 @@
+<?php
+/**
+ * @var $model \app\modules\gii2\generators\target\Generator
+ */
+?>
+$(function(){
+    var $form,$btn,$<?=$model->target?>,$new;//(表单，按钮，对象，新对象)
+    $(document).on("submit",".form-<?=$model->target?>-create",function(e){
+        e.preventDefault();
+        $form=$(this);
+        $.post($form.attr("action"),$form.serialize(),function(response){
+            if(response.result){
+                $<?=$model->target?>=$(response.page);
+                //todo
+            }else{
+                alert("fail");
+            }
+        });
+    });
+    $(document).on("submit",".form-<?=$model->target?>-edit",function(e){
+        e.preventDefault();
+        $form=$(this);
+        $.post($form.attr("action"),$form.serialize(),function(response){
+            if(response.result){
+                $<?=$model->target?>=$("#<?=$model->target?>-"+response.id);
+                $new=$(response.page);
+                //todo
+            }else{
+                alert("fail");
+            }
+        });
+    });
+    $(document).on("click",".form-<?=$model->target?>-destroy",function(e){
+        e.preventDefault();
+        $btn=$(this);
+        $.post($form.attr("action"),$form.serialize(),function(response){
+            if(response.result){
+                $<?=$model->target?>=$("#<?=$model->target?>-"+response.id);
+                $<?=$model->target?>.fadeOut(function(){$<?=$model->target?>.remove()});
+            }else{
+                alert("fail");
+            }
+        });
+    });
+});

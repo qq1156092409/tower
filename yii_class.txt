@@ -1,0 +1,400 @@
+//--yii2
+asset:
+    punycode:
+        punycode.js
+        punycode.min.js
+    jquery.maskedinput.js
+    yii.activeForm.js
+    yii.captcha.js
+    yii.gridView.js
+    yii.js
+    yii.validation.js
+
+base:
+    errorException
+    exception
+    exception-exitException
+    exception-invalidCallException
+    exception-invalidConfigException
+    exception-invalidParamException
+    exception-invalidRouteException
+    exception-unknownClassException
+    exception-unknownMethodException
+    exception-unknownPropertyException
+    exception-userException
+    exception-notSupportedException
+
+    object
+    object-behavior
+    object-behavior-actionFilter
+    object-component
+    object-component-action
+    object-component-action-inlineAction
+    object-component-controller
+    object-component-errorHandler
+    object-component-formatter
+    object-component-serviceLocator-module
+    object-component-serviceLocator-module-application
+    object-component-request
+    object-component-response
+    object-component-theme
+    object-component-viewRenderer
+    object-component-widget
+    object-component-view
+    object-component-model
+    object-component-model-dynamicModel
+    object-event
+    object-event-actionEvent
+    object-event-mailEvent
+    object-event-modelEvent
+    object-event-viewEvent
+
+behaviors:
+    object-behavior-attributeBehavior
+    object-behavior-attributeBehavior-BlameableBehavior
+    object-behavior-attributeBehavior-TimestampBehavior
+
+caching:
+    object-component-cache
+    object-component-cache-apcCache
+    object-component-cache-winCache
+    object-component-cache-xCache
+    object-component-cache-zendDataCache
+    object-component-cache-dbCache
+    object-component-cache-dummyCache
+    object-component-cache-fileCache
+    object-component-cache-memCache
+    object-dependency
+    object-dependency-chainedDependency
+    object-dependency-dbDependency
+    object-dependency-expressionDependency
+    object-dependency-fileDependency
+    object-dependency-groupDependency
+    object-memCacheServer
+
+captcha:
+    object-component-widget-inputWidget-captcha
+    object-component-action-captchaAction
+    object-component-validator-captchaValidator
+    object-assetBundle-captchaAsset
+
+console:
+    controllers:
+        object-component-controller-controller-assetController
+        object-component-controller-controller-cacheController
+        object-component-controller-controller-fixtureController
+        object-component-controller-controller-helpController
+        object-component-controller-controller-messageController
+        object-component-controller-controller-migrateController
+    object-component-serviceLocator-module-application-application
+    object-component-controller-controller
+    object-component-errorHandler-errorHandler
+    exception-userException-exception
+    object-component-request-request
+    object-component-response-response
+
+data:
+    object-component-baseDataProvider
+    object-component-baseDataProvider-activeDataProvider
+    object-component-baseDataProvider-arrayDataProvider
+    object-component-baseDataProvider-sqlDataProvider
+    dataProviderInterface
+    object-pagination
+    object-sort
+
+db:
+    mysql:
+        object-queryBuilder-queryBuilder
+        object-schema-schema
+    object-component-command
+    object-component-connection
+    object-component-migration
+    object-component-query
+    object-component-query-activeQuery
+    object-component-model-baseActiveRecord
+    object-component-model-baseActiveRecord-activeRecord
+    object-batchQueryResult
+    object-dataReader
+    object-expression
+    object-queryBuilder
+    object-schema
+    object-tableSchema
+    object-columnSchema
+    object-transaction
+
+    activeQueryInterface
+    activeQueryTrait
+    queryInterface
+    queryTrait
+    activeRecordInterface
+    activeRelationTrait
+
+    exception-exception
+    exception-exception-staleObjectException
+
+    (一次查询：activeRecord-query-connection-queryBuilder-command-dataReader-pdo)
+
+di:
+    object-component-container
+    instance
+    object-component-serviceLocator
+
+filters:
+    auth:
+        authInterface
+        object-behavior-actionFilter-authMethod
+        object-behavior-actionFilter-authMethod-compositeAuth
+        object-behavior-actionFilter-authMethod-httpBasicAuth
+        object-behavior-actionFilter-authMethod-httpBearerAuth
+        object-behavior-actionFilter-authMethod-queryParamAuth
+    object-behavior-actionFilter-accessControl
+    object-behavior-actionFilter-contentNegotiator
+    object-behavior-actionFilter-httpCache
+    object-behavior-actionFilter-pageCache
+    object-behavior-actionFilter-rateLimiter
+    object-behavior-verbFilter
+    object-component-accessRule
+    rateLimitInterface
+
+grid:
+    object-component-widget-baseListView-gridView
+    object-column
+    object-column-actionColumn
+    object-column-checkboxColumn
+    object-column-dataColumn
+    object-column-serialColumn
+    object-assetBundle-gridViewAsset
+
+helpers:
+    arrayHelper
+    console
+    fileHelper
+    html
+    htmlPurifier
+    inflector
+    json
+    markdown
+    security
+    stringHelper
+    url
+    varDumper
+
+i18n:
+    object-component-formatter-formatter
+    object-component-gettextFile
+    object-component-gettextFile-gettextMoFile
+    object-component-gettextFile-gettextPoFile
+    object-component-i18n
+    object-component-messageFormatter
+    object-component-messageSource
+    object-component-messageSource-dbMessageSource
+    object-component-messageSource-gettextMessageSource
+    object-component-messageSource-phpMessageSource
+    object-event-missingTranslationEvent
+
+log:
+    object-component-dispatcher
+    object-component-logger
+    object-component-target
+    object-component-target-dbTarget
+    object-component-target-emailTarget
+    object-component-target-fileTarget
+    object-component-target-syslogTarget
+
+mail:
+    object-component-baseMailer
+    object-baseMessage
+    mailerInterface
+    messageInterface
+
+messages:
+
+mutex:
+    object-component-mutex
+    object-component-mutex-fileMutex
+    object-component-mutex-dbMutex
+    object-component-mutex-dbMutex-mysqlMutex
+
+rbac:
+    object-assignment
+    object-component-baseManager
+    object-component-baseManager-dbManager
+    object-item
+    object-item-permission
+    object-item-role
+    object-rule
+    managerInterface
+
+requirements:
+    views:
+        console:
+            index
+        web:
+            css
+            index
+    requirements
+    yiiRequirementChecker
+
+rest:
+    object-component-controller-controller-controller
+    object-component-controller-controller-controller-activeController
+    object-component-action-action
+    object-component-action-action-createAction
+    object-component-action-action-deleteAction
+    object-component-action-action-updateAction
+    object-component-action-action-indexAction
+    object-component-action-action-viewAction
+    object-component-action-optionsAction
+    object-component-serializer
+    object-compositeUrlRule-urlRule
+
+test:
+    object-component-fixture
+    object-component-fixture-dbFixture
+    object-component-fixture-dbFixture-initDbFixture
+    object-component-fixture-dbFixture-baseActiveFixture
+    object-component-fixture-dbFixture-baseActiveFixture-activeFixture
+    fixtureTrait
+
+validators:
+    object-component-validator
+    object-component-validator-booleanValidator
+    object-component-validator-compareValidator
+    object-component-validator-dateValidator
+    object-component-validator-defaultValueValidator
+    object-component-validator-emailValidator
+    object-component-validator-existValidator
+    object-component-validator-filterValidator
+    object-component-validator-inlineValidator
+    object-component-validator-numberValidator
+    object-component-validator-rangeValidator
+    object-component-validator-regularExpressionValidator
+    object-component-validator-requiredValidator
+    object-component-validator-safeValidator
+    object-component-validator-stringValidator
+    object-component-validator-uniqueValidator
+    object-component-validator-urlValidator
+    object-component-validator-fileValidator
+    object-component-validator-fileValidator-imageValidator
+    object-assetBundle-validationAsset
+    object-assetBundle-punycodeAsset
+
+views:
+    errorHandler:
+        callStackItem
+        error
+        exception
+        previousException
+    messageConfig
+    migration
+
+web:
+    object-component-serviceLocator-module-application-application
+    object-component-assetConverter
+    object-component-assetManager
+    object-component-session
+    object-component-session-cacheSession
+    object-component-session-dbSession
+    object-component-controller-controller
+    object-component-action-errorAction
+    object-component-action-viewAction
+    object-component-errorHandler-errorHandler
+    object-component-htmlResponseFormatter
+    object-component-jsonResponseFormatter
+    object-component-xmlResponseFormatter
+    object-component-request-request
+    object-component-response-response
+    object-component-urlManager
+    object-component-user
+    object-component-view-view
+    object-cookie
+    object-cookieCollection
+    object-compositeUrlRule
+    object-compositeUrlRule-groupUrlRule
+    object-headerCollection
+    object-jsExpression
+    object-link
+    object-uploadedFile
+    object-urlRule
+    object-event-userEvent
+    object-assetBundle
+    object-assetBundle-jqueryAsset
+    object-assetBundle-yiiAsset
+    jsonParser
+    sessionIterator
+
+    assetConverterInterface
+    identityInterface
+    linkable
+    requestParseInterface
+    urlRuleInterface
+    responseFormatterInterface
+
+    exception-userException-httpException
+    exception-userException-httpException-badRequestHttpException
+    exception-userException-httpException-conflictHttpException
+    exception-userException-httpException-forbiddenHttpException
+    exception-userException-httpException-goneHttpException
+    exception-userException-httpException-methodNotAllowedHttpException
+    exception-userException-httpException-notAcceptableHttpException
+    exception-userException-httpException-notFoundHttpException
+    exception-userException-httpException-tooManyRequestHttpException
+    exception-userException-httpException-unauthorizedHttpException
+    exception-userException-httpException-unsupportedMediaTypeHttpException
+
+widgets:
+    object-component-widget-activeForm
+    object-component-widget-block
+    object-component-widget-breadcrumbs
+    object-component-widget-contentDecorator
+    object-component-widget-detailView
+    object-component-widget-fragmentCache
+    object-component-widget-linkPager
+    object-component-widget-linkSorter
+    object-component-widget-menu
+    object-component-widget-pjax
+    object-component-widget-spaceless
+    object-component-widget-baseListView
+    object-component-widget-baseListView-listView
+    object-component-widget-inputWidget
+    object-component-widget-inputWidget-maskedInput
+
+    object-component-activeField
+    object-assetBundle-maskedInputAsset
+    object-assetBundle-pjaxAsset
+    object-assetBundle-activeFormAsset
+
+baseYii
+classes
+baseYii-yii
+
+//--yii2-gii
+assets:
+
+components:
+    activeField
+    diffRenderHtmlInline
+
+controllers:
+    defaultController
+
+generators:
+    controller:
+    crud:
+    extension:
+    form:
+    model:
+    module:
+
+views:
+    default:
+    layouts:
+
+object-codeFile
+object-component-model-generator
+giiAsset
+module
+
+//--yii2-swiftmailer
+object-component-baseMailer-mailer
+object-baseMessage-message

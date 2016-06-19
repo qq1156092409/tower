@@ -1,0 +1,12 @@
+select relevance.*,
+concat_ws(" ",item.name,item.description,task.name,topic.name,doc.name,file.name,event.name) as text
+from relevance
+LEFT JOIN item on relevance.value=item.id and relevance.model = 2
+LEFT JOIN task on relevance.value=task.id and relevance.model = 1
+LEFT JOIN topic on relevance.value=topic.id and relevance.model = 4
+LEFT JOIN doc on relevance.value=doc.id and relevance.model = 7
+LEFT JOIN file on relevance.value=file.id and relevance.model = 5
+LEFT JOIN event on relevance.value=event.id and relevance.model = 6
+order by relevance.id
+
+zhongzhi:112.124.5.3

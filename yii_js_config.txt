@@ -1,0 +1,80 @@
+simditor:
+    options:
+        textarea: null                      选择器
+        placeholder: attr
+        defaultImage: 'images/image.png'    默认图片
+        params: {}                          hidden参数
+        upload: false|object                上传本地图片
+            url: ''
+            params: null
+            fileKey: 'upload_file'
+            connectionCount: 3
+            leaveConfirm: ''                离开页面提醒
+        tabIndent: true                     制表符
+        toolbar: true|array                 按钮
+        toolbarFloat: true                  按钮浮动
+        toolbarFloatOffset: 0               按钮浮动偏移
+        toolbarHidden: false                是否隐藏按钮
+        pasteImage: false
+        cleanPaste: false
+
+    events:
+
+    extensions:
+        emoji       表情
+        autosave    利用storage缓存在本地
+        dropzone    拖拽上传图片
+
+sortable:
+    options:
+        appendTo
+        axis
+        cancel
+        connectWith
+        containment
+        cursor
+        cursorAt
+        delay
+        disabled
+        distance
+        dropOnEmpty
+        forceHelperSize
+        forcePlaceholderSize
+        grid
+        handle
+        helper
+        items
+        opacity
+        placeholder
+        revert
+        scroll
+        scrollSensitivity
+        scrollSpeed
+        tolerance
+        zIndex
+    methods:
+        cancel
+        destroy
+        disable
+        enable
+        instance
+        option
+        refresh
+        refreshPositions
+        serialize
+        toArray
+        widget
+    events:
+        activate
+        beforeStop
+        change
+        create
+        deactivate
+        out
+        over
+        receive
+        remove
+        sort
+        start
+        stop
+        update

@@ -1,0 +1,40 @@
+$(function(){
+    var $form,$btn,$test2,$new;//(表单，按钮，对象，新对象)
+    $(document).on("submit",".form-test2-create",function(e){
+        e.preventDefault();
+        $form=$(this);
+        $.post($form.attr("action"),$form.serialize(),function(response){
+            if(response.result){
+                $test2=$(response.page);
+                //todo
+            }else{
+                alert("fail");
+            }
+        });
+    });
+    $(document).on("submit",".form-test2-edit",function(e){
+        e.preventDefault();
+        $form=$(this);
+        $.post($form.attr("action"),$form.serialize(),function(response){
+            if(response.result){
+                $test2=$("#test2-"+response.id);
+                $new=$(response.page);
+                //todo
+            }else{
+                alert("fail");
+            }
+        });
+    });
+    $(document).on("click",".form-test2-destroy",function(e){
+        e.preventDefault();
+        $btn=$(this);
+        $.post($form.attr("action"),$form.serialize(),function(response){
+            if(response.result){
+                $test2=$("#test2-"+response.id);
+                $test2.fadeOut(function(){$test2.remove()});
+            }else{
+                alert("fail");
+            }
+        });
+    });
+});

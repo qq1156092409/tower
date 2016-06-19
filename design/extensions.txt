@@ -1,0 +1,16 @@
+php:
+    yii-suit
+    excel
+    gateway
+    qrcode
+    mobile-detect
+    sphinx
+    redis
+js:
+    jquery && yii
+    jquery-ui
+    jquery-upload
+    lightbox
+    simditor
+    flex-paper
+    date-time-picker
