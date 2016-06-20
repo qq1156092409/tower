@@ -36,6 +36,22 @@ class DjqController extends Controller{
         return $this->render("djq", [
         ]);
     }
+    public function actionRedis(){
+        $redis=new \Redis();
+        $redis->connect("127.0.0.1",6379);
+        if(Yii::$app->user->isGuest){
+            return "guest";
+        }
+        $key="user-".Yii::$app->user->id;
+        if($redis->exists($key)){
+            echo "exists";
+            $redisUser=$redis->get("user-".Yii::$app->user->id);
+            Yii::$app->user->setIdentity(unserialize($redisUser));
+        }else{
+            echo "not-exists";
+            $redis->set($key,serialize(Yii::$app->user->identity));
+        }
+    }
     public function actionGuzzle(){
         $client = new Client();
         $res = $client->request('GET', 'http://localhost/phpmyadmin/sql.php?server=1&db=tower&table=area&pos=0&token=2240ea940b3e39ab55807eb09ed7c1f7', [
