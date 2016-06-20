@@ -25,7 +25,7 @@ abstract class RedisActiveRecord extends ActiveRecord implements IRedisActiveRec
             return unserialize($redis->hGet($key,$condition));
         }
         $one=parent::findOne($condition);
-        $one and $redis->hSet(self::getRedisKey(), $condition,serialize($one));
+        $one and $redis->hSet($key, $condition,serialize($one));
         return $one;
     }
 }
