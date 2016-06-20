@@ -2,8 +2,9 @@
 
 namespace app\models;
 
+use app\components\RedisActiveRecord;
 use Yii;
-use yii\helpers\Security;
+use yii\base\Security;
 use yii\web\IdentityInterface;
 
 /**
@@ -18,7 +19,7 @@ use yii\web\IdentityInterface;
  *
  * @property string $activeName
  */
-class User extends \yii\db\ActiveRecord implements IdentityInterface
+class User extends RedisActiveRecord implements IdentityInterface
 {
     /**
      * @inheritdoc
@@ -121,12 +122,15 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return $this->getAuthKey() === $authKey;
     }
+    public static function getRedisKey(){
+        return "user";
+    }
 
     //--event
     public function beforeSave($insert){
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
-                $this->authKey = Security::generateRandomKey();
+                $this->authKey = (new Security)->generateRandomKey();
             }
             return true;
         }
