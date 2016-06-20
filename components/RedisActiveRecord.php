@@ -20,8 +20,9 @@ abstract class RedisActiveRecord extends ActiveRecord implements IRedisActiveRec
     }
     public static function findOne($condition){
         $redis=self::getRedis();
-        if(is_numeric($condition) && $redis->hExists(self::getRedisKey(),$condition)){
-            return unserialize($redis->hGet(self::getRedis(),$condition));
+        $key=static::getRedisKey();
+        if(is_numeric($condition) && $redis->hExists($key,$condition)){
+            return unserialize($redis->hGet($key,$condition));
         }
         $one=parent::findOne($condition);
         $one and $redis->hSet(self::getRedisKey(), $condition,serialize($one));
