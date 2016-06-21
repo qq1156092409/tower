@@ -2,10 +2,10 @@
 
 namespace app\models;
 
-use app\components\RedisActiveRecord;
 use Yii;
 use yii\base\Security;
 use yii\web\IdentityInterface;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "user".
@@ -19,7 +19,7 @@ use yii\web\IdentityInterface;
  *
  * @property string $activeName
  */
-class User extends RedisActiveRecord implements IdentityInterface
+class User extends ActiveRecord implements IdentityInterface
 {
     /**
      * @inheritdoc
@@ -121,9 +121,6 @@ class User extends RedisActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         return $this->getAuthKey() === $authKey;
-    }
-    public static function getRedisKey(){
-        return "user";
     }
 
     //--event
