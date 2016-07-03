@@ -8,6 +8,7 @@ use app\models\Dir;
 use app\models\form\DirForm;
 use app\models\Ip;
 use app\models\Task;
+use app\models\Test2;
 use app\models\User;
 use app\vendor\sphinx\SphinxClient;
 use yii\base\ErrorException;
@@ -29,10 +30,7 @@ use GuzzleHttp\Psr7\Request;
 
 class DjqController extends Controller{
     public function actionIndex(){
-        echo ip2long("127.0.0.1")."<br>";
-        echo ip2long("192.168.1.1")."<br>";
-        echo ip2long("42.199.60.241")."<br>";
-        Yii::$app->end();
+//        Yii::$app->end();
         return $this->render("djq", [
         ]);
     }
@@ -40,7 +38,8 @@ class DjqController extends Controller{
         $redis=new \Redis();
         $redis->connect("127.0.0.1",6379);
         if(Yii::$app->user->isGuest){
-            return "guest";
+            echo "guest";
+            Yii::$app->end();
         }
         $key="user-".Yii::$app->user->id;
         if($redis->exists($key)){
@@ -51,6 +50,28 @@ class DjqController extends Controller{
             echo "not-exists";
             $redis->set($key,serialize(Yii::$app->user->identity));
         }
+    }
+    public function actionTransaction(){
+        $transaction=Yii::$app->db->beginTransaction();
+        try{
+            $test=new Test2();
+            $test->id=1;
+            $test->name = "djq".rand(1,100);
+            $test->setIsNewRecord(false);
+            $test->save();
+
+            $test2=new Test2();
+            $test2->name = "djq".rand(1,100);
+            $test2->save();
+
+            $transaction->commit();
+            echo "success";
+        }catch(Exception $e){
+            $transaction->rollBack();
+            echo "fail";
+        }
+        return $this->render("djq", [
+        ]);
     }
     public function actionGuzzle(){
         $client = new Client();
