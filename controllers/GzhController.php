@@ -12,10 +12,12 @@ class GzhController extends Controller{
         $test2=new Test2();
         $test2->name=json_encode(\Yii::$app->request->getQueryParams());
         $test2->save();
+        return $_GET["echostr"];
 
-        $model=new GzhForm();
-        $model->load(\Yii::$app->request->getQueryParams());
-        echo $model->echostr;
+//        $model=new GzhForm();
+//        echo $model->load(\Yii::$app->request->getQueryParams(),"")?1:0;
+//        print_r($model->attributes);exit;
+        return $model->echostr;
 //        if($model->valid()){
 //            echo $model->echostr;
 //        }
