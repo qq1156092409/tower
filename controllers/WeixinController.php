@@ -13,9 +13,6 @@ use yii\base\Security;
 use yii\web\Controller;
 
 class WeixinController extends Controller{
-    /**
-     * 重定向到微信二维码扫描页面
-     */
     public function actionConnect(){
         $url=http_build_query("https://open.weixin.qq.com/connect/qrconnect", [
             "appid"=>"APPID",
