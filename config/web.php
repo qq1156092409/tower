@@ -57,6 +57,10 @@ $config = [
         'jsManager' => [
             'class' => 'app\components\JsManager',
         ],
+        "session"=>[
+            "class"=>'yii\web\DbSession',
+            'db'=>"baseDb",
+        ],
     ],
     'modules'=>[
         "back"=>'app\modules\back\Module',

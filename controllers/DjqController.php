@@ -14,6 +14,8 @@ use app\vendor\sphinx\SphinxClient;
 use yii\base\ErrorException;
 use yii\base\Exception;
 use yii\base\NotSupportedException;
+use yii\db\Connection;
+use yii\db\Query;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
 use yii\web\Response;
@@ -30,7 +32,7 @@ use GuzzleHttp\Psr7\Request;
 
 class DjqController extends Controller{
     public function actionIndex(){
-//        Yii::$app->end();
+        Yii::$app->end();
         return $this->render("djq", [
         ]);
     }
