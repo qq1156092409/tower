@@ -11,13 +11,15 @@ class GzhController extends Controller{
         //监听请求
         $test2=new Test2();
         $test2->name=json_encode(\Yii::$app->request->getQueryParams());
-        $test2->save();
 
         define("TOKEN", "weixin");
         $wechatObj = new wechatCallbackapiTest();
         if(isset($_GET["echostr"])){
+            $test2->save();
             $wechatObj->valid();
         }else{
+            $test2->name="haha";
+            $test2->save();
             $wechatObj->responseMsg();
         }
     }
