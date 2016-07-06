@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models\form;
+use app\models\Test2;
 use yii\base\Model;
 
 class GzhForm extends Model {
@@ -15,7 +16,7 @@ class GzhForm extends Model {
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             foreach($this->attributes() as $attr){
                 if(property_exists($postObj, $attr)){
-                    $this->$attr=$postStr->$attr;
+                    $this->$attr=$postObj->$attr;
                 }
             }
         }
