@@ -5,6 +5,12 @@ use yii\base\Model;
 
 class GzhForm extends Model {
     const TEXT="text";
+    const IMAGE="image";
+    const VOICE="voice";
+    const VIDEO="video";
+    const SHORT_VIDEO="shortvideo";
+    const LOCATION="location";
+    const LINK="link";
 
     public $FromUserName;
     public $ToUserName;
@@ -12,6 +18,18 @@ class GzhForm extends Model {
     public $CreateTime;
     public $MsgType;
     public $FuncFlag;
+    public $PicUrl;
+    public $MediaId;
+    public $Format;
+    public $ThumbMediaId;
+    public $Recognition;
+    public $Location_X;
+    public $Location_Y;
+    public $Scale;
+    public $Label;
+    public $Title;
+    public $Description;
+    public $Url;
 
     public static $ignoreCdata=array(
         "FuncFlag",
@@ -37,7 +55,7 @@ class GzhForm extends Model {
      */
     public function response(){
         $response=$this->getResponse();
-        $response->Content="您提的问题我们正在处理...";
+        $response->Content="您的问题已收到，我们会在第一时间回复您";
         return $response->getResponseStr();
     }
     private $_response=false;
