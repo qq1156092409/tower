@@ -6,11 +6,11 @@ use yii\web\Controller;
 
 class GzhController extends Controller{
     public $enableCsrfValidation=false;
-    public function actionIndex(){
+    public function actionIndex($echostr=null){
         $model=new GzhForm();
-        if(\Yii::$app->request->isPost){
+        if(!$echostr){
             $model->scenario=GzhForm::ANSWER;
-            $model->load(\Yii::$app->request->post(),"");
+            $model->load($this->getPostData(),"");
             if($model->answer()){
                 echo $model->getRet();
             }else{
@@ -25,5 +25,22 @@ class GzhController extends Controller{
         if($model->valid()){
             echo $model->getRet();
         }
+    }
+    private function getPostData(){
+        $data=[];
+        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        //extract post data
+        if (!empty($postStr)){
+            /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+               the best way is to check the validity of xml by yourself */
+            libxml_disable_entity_loader(true);
+            $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $data=[
+                "FromUserName"=>$postObj->FromUserName,
+                "ToUserName"=>$postObj->ToUserName,
+                "Content"=>$postObj->Content,
+            ];
+        }
+        return $data;
     }
 }
