@@ -6,6 +6,7 @@ use app\components\JsManager;
 use app\models\Area;
 use app\models\Dir;
 use app\models\form\DirForm;
+use app\models\form\GzhForm;
 use app\models\Ip;
 use app\models\Task;
 use app\models\Test2;
@@ -32,7 +33,11 @@ use GuzzleHttp\Psr7\Request;
 
 class DjqController extends Controller{
     public function actionIndex(){
-//        echo strlen('{"r":"gzh\/index","signature":"67d80a0eed54b3ec30713be7d28489ab3d94aa4b","echostr":"4777594808476629749","timestamp":"1467724405","nonce":"1425332851"}');
+        $model=new GzhForm();
+        $model->Content="content";
+        $model->FromUserName="fromUserName";
+        $model->FuncFlag=0;
+        echo $model->getResponseStr();
         Yii::$app->end();
         return $this->render("djq", [
         ]);

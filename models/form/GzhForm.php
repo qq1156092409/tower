@@ -1,13 +1,23 @@
 <?php
 
 namespace app\models\form;
-use app\models\Test2;
 use yii\base\Model;
 
 class GzhForm extends Model {
+    const TEXT="text";
+
     public $FromUserName;
     public $ToUserName;
     public $Content;
+    public $CreateTime;
+    public $MsgType;
+    public $FuncFlag;
+
+    public static $ignoreCdata=array(
+        "FuncFlag",
+        "CreateTime",
+        "FuncFlag",
+    );
 
     public function receive(){
         $postStr=$GLOBALS["HTTP_RAW_POST_DATA"];
@@ -23,24 +33,35 @@ class GzhForm extends Model {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function response(){
-        $response=new static();
-        $response->FromUserName=$this->ToUserName;
-        $response->ToUserName=$this->FromUserName;
+        $response=$this->getResponse();
+        $response->Content="您提的问题我们正在处理...";
         return $response->getResponseStr();
     }
+    private $_response=false;
+    public function getResponse(){
+        if($this->_response===false){
+            $this->_response=new static();
+            $this->_response->ToUserName=$this->FromUserName;
+            $this->_response->FromUserName=$this->ToUserName;
+            $this->_response->CreateTime=time();
+        }
+        return $this->_response;
+    }
     public function getResponseStr(){
-        $textTpl = "<xml>
-                        <ToUserName><![CDATA[%s]]></ToUserName>
-                        <FromUserName><![CDATA[%s]]></FromUserName>
-                        <CreateTime>%s</CreateTime>
-                        <MsgType><![CDATA[%s]]></MsgType>
-                        <Content><![CDATA[%s]]></Content>
-                        <FuncFlag>0</FuncFlag>
-                        </xml>";
-        return sprintf($textTpl, $this->ToUserName, $this->FromUserName, time(), "text", "您提的问题我们正在处理...");
+        $attrStr="";
+        foreach($this->attributes as $k=>$v){
+            if(isset($v)){
+                if(in_array($k,self::$ignoreCdata)){
+                    $attrStr=$attrStr."<".$k.">".$v."</".$k.">";
+                }else{
+                    $attrStr=$attrStr."<".$k."><![CDATA[".$v."]]></".$k.">";
+                }
+            }
+        }
+        return "<xml>".$attrStr."</xml>";
     }
 
 }
