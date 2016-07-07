@@ -56,6 +56,8 @@ class GzhForm extends Model {
     public function response(){
         $response=$this->getResponse();
         $response->Content="您的问题已收到，我们会在第一时间回复您";
+        $response->MsgType=self::TEXT;
+        $response->FuncFlag=0;
         return $response->getResponseStr();
     }
     private $_response=false;

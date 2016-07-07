@@ -33,11 +33,7 @@ use GuzzleHttp\Psr7\Request;
 
 class DjqController extends Controller{
     public function actionIndex(){
-        $model=new GzhForm();
-        $model->Content="content";
-        $model->FromUserName="fromUserName";
-        $model->FuncFlag=0;
-        echo $model->getResponseStr();
+        echo strtotime("2016-07-01 23:42:18");
         Yii::$app->end();
         return $this->render("djq", [
         ]);
