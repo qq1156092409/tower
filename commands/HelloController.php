@@ -31,6 +31,10 @@ class HelloController extends Controller
     public function actionDjq($a,$b,$c){
         echo "haha\n";
         echo "$a-$b-$c";
-        return $a+$b+$c;
+        return 0;
+    }
+    public function actionDjq2(){
+        print_r(\Yii::$app->getRequest()->getParams());
+        return 0;
     }
 }
