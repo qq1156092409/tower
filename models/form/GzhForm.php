@@ -1,9 +1,11 @@
 <?php
 
 namespace app\models\form;
+use app\extensions\gzh\GzhHandler;
 use yii\base\Model;
 
 class GzhForm extends Model {
+    //msg type
     const TEXT="text";
     const IMAGE="image";
     const VOICE="voice";
@@ -11,6 +13,15 @@ class GzhForm extends Model {
     const SHORT_VIDEO="shortvideo";
     const LOCATION="location";
     const LINK="link";
+    const EVENT="event";
+
+    //event type
+    const EVENT_SUBSCRIBE="subscribe";
+    const EVENT_UN_SUBSCRIBE="unsubscribe";
+    const EVENT_SCAN="SCAN";
+    const EVENT_LOCATION="LOCATION";
+    const EVENT_CLICK="CLICK";
+    const EVENT_VIEW="VIEW";
 
     public $FromUserName;
     public $ToUserName;
@@ -30,6 +41,12 @@ class GzhForm extends Model {
     public $Title;
     public $Description;
     public $Url;
+    public $Event;
+    public $EventKey;
+    public $Ticket;
+    public $Latitude;
+    public $Longitude;
+    public $Precision;
 
     public static $ignoreCdata=array(
         "FuncFlag",
@@ -54,12 +71,14 @@ class GzhForm extends Model {
      * @return string
      */
     public function response(){
-        $response=$this->getResponse();
-        $response->Content="您的问题已收到，我们会在第一时间回复您";
-        $response->MsgType=self::TEXT;
-        $response->FuncFlag=0;
-        return $response->getResponseStr();
+        $handler=new GzhHandler();
+        $handler->model=$this;
+        return $handler->handle();
     }
+
+    /**
+     * @var static|GzhForm
+     */
     private $_response=false;
     public function getResponse(){
         if($this->_response===false){
@@ -70,7 +89,7 @@ class GzhForm extends Model {
         }
         return $this->_response;
     }
-    public function getResponseStr(){
+    public function toXml(){
         $attrStr="";
         foreach($this->attributes as $k=>$v){
             if(isset($v)){
