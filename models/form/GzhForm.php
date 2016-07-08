@@ -56,14 +56,6 @@ class GzhForm extends Model {
 
     public function receive(){
         $postStr=$GLOBALS["HTTP_RAW_POST_DATA"];
-        $postStr=' <xml>
- <ToUserName><![CDATA[toUser]]></ToUserName>
- <FromUserName><![CDATA[fromUser]]></FromUserName>
- <CreateTime>1348831860</CreateTime>
- <MsgType><![CDATA[text]]></MsgType>
- <Content><![CDATA[this is a test]]></Content>
- <MsgId>1234567890123456</MsgId>
- </xml>';
         if (!empty($postStr)){
             libxml_disable_entity_loader(true);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
