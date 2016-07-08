@@ -16,7 +16,7 @@ class GzhEventHandler {
         $event=$this->model->Event;
         $method="handle".ucfirst(strtolower($event));
         if(method_exists($this,$method)){
-            return $this->$method;
+            return call_user_func([$this,$method]);
         }
         return $this->handleDefault();
     }

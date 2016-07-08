@@ -10,10 +10,10 @@ class GzhHandler {
      */
     public $model;
     public function handle(){
-        $event=$this->model->MsgType;
-        $method="handle".ucfirst(strtolower($event));
+        $type=$this->model->MsgType;
+        $method="handle".ucfirst(strtolower($type));
         if(method_exists($this,$method)){
-            return $this->$method;
+            return call_user_func([$this,$method]);
         }
         return $this->handleDefault();
     }
