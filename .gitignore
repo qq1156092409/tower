@@ -1,3 +1,4 @@
 .idea/*
 runtime/*
 config/db.php
+web/assets/*

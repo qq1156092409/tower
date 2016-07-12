@@ -9,6 +9,8 @@ namespace app\commands;
 
 use app\models\Operation;
 use yii\console\Controller;
+use yii\db\Connection;
+use yii\helpers\FileHelper;
 
 /**
  * This command echoes the first argument that you have entered.
@@ -35,6 +37,20 @@ class HelloController extends Controller
     }
     public function actionDjq2(){
         print_r(\Yii::$app->getRequest()->getParams());
+        return 0;
+    }
+    public function actionBatchInsert(){
+        /** @var Connection $connection */
+        $connection=\Yii::$app->db;
+        $datas=[];
+        for($i=1;$i<=10000;$i++){
+            $datas[]=["name".$i,"description".$i];
+        }
+        $sql= $connection->queryBuilder->batchInsert("test",["name","description"],$datas);
+        $command=$connection->createCommand($sql);
+        for($i=1;$i<1000;$i++){
+            $command->execute();
+        }
         return 0;
     }
 }

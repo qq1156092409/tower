@@ -133,6 +133,7 @@ db:
     exception-exception-staleObjectException
 
     (一次查询：activeRecord-query-connection-queryBuilder-command-dataReader-pdo)
+    (一次写入：activeRecord-schema-command-pdo)
 
 di:
     object-component-container
