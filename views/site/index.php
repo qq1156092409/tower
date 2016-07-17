@@ -14,3 +14,4 @@ $teamID=Yii::$app->user->identity->lastUserTeam->teamID;
 <?php }else{ ?>
     <a href="<?=Url::to(["team/projects","id"=>$teamID])?>">最后编辑的团队项目</a>
 <?php } ?>
+<script src="<?=Url::to("js/baidu_static.js")?>"></script>
