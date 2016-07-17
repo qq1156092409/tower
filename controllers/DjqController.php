@@ -14,11 +14,14 @@ use app\models\User;
 use app\vendor\sphinx\SphinxClient;
 use yii\base\ErrorException;
 use yii\base\Exception;
+use yii\base\ExitException;
 use yii\base\NotSupportedException;
 use yii\db\Connection;
 use yii\db\Query;
 use yii\helpers\FileHelper;
 use yii\helpers\Html;
+use yii\web\BadRequestHttpException;
+use yii\web\Cookie;
 use yii\web\Response;
 use yii\gii\CodeFile;
 use yii\web\Controller;
@@ -34,6 +37,10 @@ use app\models\Test;
 
 class DjqController extends Controller{
     public function actionIndex(){
+        foreach(Yii::$app->session as $k=>$v){
+            echo $k."-".$v."<br>";
+        }
+
         Yii::$app->end();
         return $this->render("djq", [
         ]);
