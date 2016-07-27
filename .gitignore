@@ -1,4 +1,5 @@
 .idea/*
 runtime/*
 config/db.php
+config/constants.php
 web/assets/*
