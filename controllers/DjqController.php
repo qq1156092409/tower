@@ -3,6 +3,7 @@ namespace app\controllers;
 
 use app\assets\ZeptoAsset;
 use app\components\JsManager;
+use app\helpers\ImageHelper;
 use app\models\Area;
 use app\models\Dir;
 use app\models\form\DirForm;
@@ -37,9 +38,10 @@ use app\models\Test;
 
 class DjqController extends Controller{
     public function actionIndex(){
-        foreach(Yii::$app->session as $k=>$v){
-            echo $k."-".$v."<br>";
-        }
+        $filename=Yii::getAlias("@app/files/-5K59KkywHNNiYbX5RcCCGuosTU8x1Mq.png");
+        $filename2=Yii::getAlias("@app/files/-5K59KkywHNNiYbX5RcCCGuosTU8x1Mq_s.png");
+
+        ImageHelper::createThumbnail($filename,$filename2);
 
         Yii::$app->end();
         return $this->render("djq", [
