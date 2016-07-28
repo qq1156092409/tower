@@ -44,7 +44,6 @@ class FileController extends Controller{
         $model->projectID=$projectID;
         $model->dirID=$dirID;
         $ret=["result"=>false,"projectID"=>$projectID,"dirID"=>$dirID];
-        \Yii::$app->response->format=Response::FORMAT_JSON;
         $model->attachment = UploadedFile::getInstanceByName("attachment");
         $model->preprocess();
         if($model->upload()){
@@ -53,6 +52,7 @@ class FileController extends Controller{
         }else{
             $ret["errors"]=$model->errors;
         }
+        \Yii::$app->response->format=Response::FORMAT_JSON;
         return $ret;
     }
 } 

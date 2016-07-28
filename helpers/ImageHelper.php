@@ -63,4 +63,14 @@ class ImageHelper
         imagedestroy($dest_img);
         return true;
     }
+
+    /**
+     * 在文件名名后面加上"_small"
+     * @param $filename
+     * @return string
+     */
+    public static function getSmallFilename($filename){
+        $info = pathinfo($filename);
+        return $info["dirname"] .'/'. $info["filename"] .'_small.'. $info["extension"];
+    }
 }

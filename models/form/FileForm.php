@@ -7,8 +7,8 @@ use app\models\File;
 use app\models\Operation;
 use app\models\multiple\G;
 use app\models\UserTeam;
-use yii\helpers\Security;
 use yii\web\UploadedFile;
+use yii\base\Security;
 
 class FileForm extends File{
     const CREATE = "create";
@@ -117,8 +117,10 @@ class FileForm extends File{
         return $flag;
     }
     private function saveAttachment(){
-        $file=Security::generateRandomKey().".".$this->attachment->getExtension();
-        $this->attachment->saveAs("../files/".$file);
+        $file=rand(0,9999999999).".".$this->attachment->getExtension();
+        $full=\Yii::getAlias("@app/files/".$file);
+        $this->attachment->saveAs($full);
+
         return $file;
     }
     private function createOperation($type){

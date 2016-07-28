@@ -16,6 +16,7 @@ JsManager::instance()->registers([
     "js/yii.socket.js",
 ]);
 $this->registerCssFile("@web/public/application-404f5efaeb2aead3434d85ff01eddcef.css");
+$request=Yii::$app->request;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -28,6 +29,8 @@ $this->registerCssFile("@web/public/application-404f5efaeb2aead3434d85ff01eddcef
     <meta name="renderer" content="webkit">
     <meta name="baidu-site-verification" content="qLDoHdGnb64RHlkm">
     <meta name="alexaVerifyID" content="SIgQikd9LazsFz9M1vPBaQyC4Gw">
+    <meta name="csrf-param" content="<?=$request->csrfParam?>">
+    <meta name="csrf-token" content="<?=$request->csrfToken?>">
     <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
     <link rel="icon" href="public/favicon.ico" sizes="32x32">
     <link rel="icon" href="public/favicon.ico" sizes="64x64">
