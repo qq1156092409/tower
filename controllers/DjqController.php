@@ -38,9 +38,7 @@ use app\models\Test;
 
 class DjqController extends Controller{
     public function actionIndex(){
-        $filename=Yii::getAlias("@app/web/temp/370.gif");
-        ImageHelper::createThumbnail($filename,ImageHelper::getSmallFilename($filename));
-
+        echo "master";
         Yii::$app->end();
         return $this->render("djq", [
         ]);
