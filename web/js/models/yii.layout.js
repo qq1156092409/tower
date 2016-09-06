@@ -63,7 +63,7 @@ yii.layout=(function($){
         });
         $btnTeams.click(function(e){
             $popTeams.css({
-                top:($(this).offset().top+$(this).width()-70)+"px",
+                top:($(this).offset().top+$(this).height()+5)+"px",
                 left:$(this).offset().left-($popTeams.width()-$(this).width())/2+"px"
             });
             $popTeams.show();
