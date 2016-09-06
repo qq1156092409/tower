@@ -257,7 +257,7 @@ class DjqController extends Controller{
         return $this->render("fileInput");
     }
     public function actionHaha(){
-        echo "haha";
+        echo "haha-new";
     }
     public function actionSphinx(){
         $sphinx=new SphinxClient();
