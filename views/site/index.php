@@ -6,7 +6,7 @@ use yii\helpers\Url;
  * Date: 15-6-27
  * Time: 下午6:39
  */
-$teamID=Yii::$app->user->identity->lastUserTeam->teamID;
+$teamID=Yii::$app->user->isGuest?null:Yii::$app->user->identity->lastUserTeam->teamID;
 ?>
 <?=Yii::$app->id?><br>
 <?php if(Yii::$app->user->isGuest){ ?>

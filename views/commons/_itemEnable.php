@@ -63,7 +63,7 @@ use yii\widgets\ActiveForm;
     </div>
     <ul id="task-uncompleted-list-<?=$model->id?>" class="todos todos-uncompleted ui-sortable">
         <?php foreach ($model->commonTasks as $task) {
-            echo $this->render("/commons/_task", ["model" => $task, "teamID" => $teamID,"hasEdit"=>true]);
+            echo $this->render("/commons/_task", ["model" => $task,"hasEdit"=>true]);
         } ?>
     </ul>
     <ul class="todo-new-wrap">

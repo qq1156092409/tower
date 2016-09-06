@@ -165,7 +165,7 @@ foreach($items as $k=>$item){
 </div>
 <div id="item-list" class="todolists ui-sortable">
 <?php foreach($items as $item){
-    echo $this->render("/commons/_item",["model"=>$item]);
+    echo $this->render("/commons/_item",["model"=>$item,"process"=>null]);
 } ?>
 </div>
 <div class="todolists-completed">

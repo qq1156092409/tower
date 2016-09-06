@@ -44,7 +44,56 @@ JsManager::instance()->registers([
     }?>
 </div>
 </div>
-    <?=$this->render("/commons/_targetActions",["model"=>$item])?>
+    <div class="detail-star-action">
+        <a href="/projects/c96929b616cd4100a6225ea090264459/lists/fe4c11843b7343c0986f7bcaab8e1c84/star?muid=fe4c11843b7343c0986f7bcaab8e1c84" class="detail-action detail-action-star" data-itemid="1951098" data-itemtype="Todolist" data-loading="true" data-method="post" data-remote="true" rel="nofollow" title="关注">关注</a>
+    </div>
+    <div class="detail-actions">
+        <div class="item">
+            <a href="javascript:;" class="detail-action detail-action-edit">编辑</a>
+        </div>
+
+        <div class="item detail-action-copy" data-visible-to="admin">
+            <a href="javascript:;" class="detail-action detail-action-todolist">复制</a>
+            <div class="confirm">
+                <form class="form form-copy" action="/projects/c96929b616cd4100a6225ea090264459/lists/fe4c11843b7343c0986f7bcaab8e1c84/target_project" method="post" data-remote="">
+                    <p class="title">复制到项目</p>
+                    <p>
+                        <select data-project="c96929b616cd4100a6225ea090264459" class="choose-projects loading"></select>
+                        <input type="hidden" name="puid">
+                    </p>
+                    <p>
+                        <button type="submit" class="btn btn-mini" disabled="" data-disable-with="正在复制...">复制</button>
+                        <button type="button" class="btn btn-x cancel">取消</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="item detail-action-move" data-visible-to="admin">
+            <a href="javascript:;" class="detail-action detail-action-todolist">移动</a>
+            <div class="confirm">
+                <form class="form form-move" action="/projects/c96929b616cd4100a6225ea090264459/lists/fe4c11843b7343c0986f7bcaab8e1c84/move" method="post" data-remote="">
+                    <p class="title">移动任务清单到项目</p>
+                    <p>
+                        <select data-project="c96929b616cd4100a6225ea090264459" class="choose-projects loading"></select>
+                        <input type="hidden" name="tpuid">
+                    </p>
+                    <p>
+                        <button type="submit" class="btn btn-mini" disabled="" data-disable-with="正在移动...">移动</button>
+                        <button type="button" class="btn btn-x cancel">取消</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="item" data-visible-to="member">
+            <a href="/projects/c96929b616cd4100a6225ea090264459/lists/fe4c11843b7343c0986f7bcaab8e1c84/toggle_archived" class="detail-action detail-action-archive" data-loading="true" data-method="put" data-remote="true" title="请确认清单内任务都已完成">归档</a>
+        </div>
+
+        <div class="item" data-visible-to="admin, creator">
+            <a href="javascript:;" class="detail-action detail-action-del">删除</a>
+        </div>
+    </div>
     <?=$this->render("/commons/_commentCreate",["target"=>$item])?>
 </div>
 </div>

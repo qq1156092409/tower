@@ -153,7 +153,35 @@ JsManager::instance()->registers(["js/models/yii.topic.js",]);
         echo $this->render("/commons/_operation",["model"=>$operation]);
     }?>
 </div>
-    <?=$this->render("/commons/_targetActions",["model"=>$topic])?>
+    <div class="detail-star-action">
+        <a href="/projects/c96929b616cd4100a6225ea090264459/messages/669c57bf53cf4c409be82b9155653732/star" class="detail-action detail-action-star" data-itemid="1452816" data-itemtype="Message" data-loading="true" data-method="post" data-remote="true" rel="nofollow" title="关注">关注</a>
+    </div>
+    <div class="detail-actions">
+        <div class="item" data-visible-to="creator,admin">
+            <a href="/projects/c96929b616cd4100a6225ea090264459/messages/669c57bf53cf4c409be82b9155653732/edit" class="detail-action detail-action-edit" data-loading="true" data-method="get" data-remote="true">编辑</a>
+        </div>
+
+        <div class="item detail-action-move" data-visible-to="creator,admin">
+            <a href="javascript:;" class="detail-action">移动</a>
+            <div class="confirm">
+                <form class="form form-move" action="/projects/c96929b616cd4100a6225ea090264459/messages/669c57bf53cf4c409be82b9155653732/move" method="post" data-remote="">
+                    <p class="title">移动这条讨论到项目</p>
+                    <p>
+                        <select data-project="c96929b616cd4100a6225ea090264459" class="choose-projects loading"></select>
+                        <input type="hidden" name="tpuid">
+                    </p>
+                    <p>
+                        <button type="submit" class="btn btn-mini" disabled="" data-disable-with="正在移动...">移动</button>
+                        <button type="button" class="btn btn-x cancel">取消</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="item" data-visible-to="creator,admin">
+            <a href="/projects/c96929b616cd4100a6225ea090264459/messages/669c57bf53cf4c409be82b9155653732/destroy" class="detail-action detail-action-del" data-confirm="确定要删除这条讨论吗？" data-method="post" data-remote="true" data-stack-replace="true" rel="nofollow">删除</a>
+        </div>
+    </div>
     <?=$this->render("/commons/_commentCreate",["target"=>$topic])?>
 </div>
 </div>

@@ -81,7 +81,7 @@ JsManager::instance()->registers([
                         ]
                     ])?>
                         <input type="hidden" name="Dir[projectID]" value="<?=$project->id?>" />
-                        <input type="hidden" name="Dir[parentID]" value="<?=$currentDir?$currentDir->id:0?>" />
+                        <input type="hidden" name="Dir[parentID]" value="<?=isset($currentDir)?$currentDir->id:0?>" />
                         <div class="dir-name">
                             <div class="dir-icon">
                                 <a href="javascript:;"></a>

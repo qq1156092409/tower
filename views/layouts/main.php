@@ -50,22 +50,22 @@ $request=Yii::$app->request;
             </a>
         </h1>
         <ul class="nav">
-            <li id="nav-project" class="<?=$this->params["active"]==1?"active":""?>">
+            <li id="nav-project" class="<?=isset($this->params["active"])&&$this->params["active"]==1?"active":""?>">
                 <a href="<?=Url::to(["team/projects","id"=>$teamID])?>" data-stack="" data-stack-root="">项目</a>
             </li>
-            <li id="nav-events" class="<?=$this->params["active"]==2?"active":""?>">
+            <li id="nav-events" class="<?=isset($this->params["active"])&&$this->params["active"]==2?"active":""?>">
                 <a href="<?=Url::to(["team/operations","id"=>$teamID])?>" data-stack="" data-stack-root="">动态</a>
             </li>
-            <li id="nav-week" class="<?=$this->params["active"]==3?"active":""?>">
+            <li id="nav-week" class="<?=isset($this->params["active"])&&$this->params["active"]==3?"active":""?>">
                 <a href="javascript:void(0)" data-stack="" data-stack-root="">周报</a>
             </li>
-            <li id="nav-calendar" class="<?=$this->params["active"]==4?"active":""?>">
+            <li id="nav-calendar" class="<?=isset($this->params["active"])&&$this->params["active"]==4?"active":""?>">
                 <a href="<?=Url::to(["team/calendars","id"=>$teamID])?>" data-stack="" data-stack-fluid="" data-stack-root="">日历</a>
             </li>
-            <li id="nav-members" class="<?=$this->params["active"]==5?"active":""?>">
+            <li id="nav-members" class="<?=isset($this->params["active"])&&$this->params["active"]==5?"active":""?>">
                 <a href="<?=Url::to(["team/members","id"=>$teamID])?>" data-stack="" data-stack-root="">团队</a>
             </li>
-            <li id="nav-me" class="<?=$this->params["active"]==6?"active":""?>">
+            <li id="nav-me" class="<?=isset($this->params["active"])&&$this->params["active"]==6?"active":""?>">
                 <a href="<?=Url::to(["user/tasks","teamID"=>$teamID])?>" data-stack="" data-stack-root="">我自己</a>
             </li>
         </ul>

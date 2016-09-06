@@ -34,12 +34,12 @@ JsManager::instance()->registers([
                 </select>
                 <div class="boxes" data-sort-url="/members/c24e8e36ccaf43b787229ff595efc41d/sort_todo">
                     <?php foreach (\app\models\Task::box() as $id => $box) { ?>
-                        <div class="box box-<?= $box["name"]?> <?=count($tasks[$id])>0?"":"empty"?>" data-box="<?= $id ?>">
+                        <div class="box box-<?= $box["name"]?> <?=(isset($tasks[$id])&&count($tasks[$id])>0)?"":"empty"?>" data-box="<?= $id ?>">
                             <h5 class="box-title"><i class="twr <?=$box["iconClass"]?>"></i><?=$box["chinese"]?></h5>
                             <p class="box-empty-desc"><?= $box["emptyText"] ?></p>
                             <div class="todolist">
                                 <ul class="todos todos-uncompleted ui-sortable">
-                                    <?php if($tasks[$id]){foreach($tasks[$id] as $task){
+                                    <?php if(isset($tasks[$id])){foreach($tasks[$id] as $task){
                                         echo $this->render("/commons/_task",["model"=>$task,"teamID"=>$teamID,"hasEdit"=>true]);
                                     }} ?>
                                 </ul>

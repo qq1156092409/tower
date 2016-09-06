@@ -9,4 +9,4 @@ if($model->status==Task::FINISHED){
 }else{
     $view="/commons/_taskUnFinish";
 }
-echo $this->render($view,["model"=>$model,"hasEdit"=>$hasEdit]);
+echo $this->render($view,["model"=>$model,"hasEdit"=>isset($hasEdit)?$hasEdit:false]);

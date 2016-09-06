@@ -90,7 +90,7 @@ class JsManager extends Component{
      * @return array|false
      */
     public function getDepends($name,$type=null){
-        $depends=(array)$this->dependence[$name];
+        $depends=isset($this->dependence[$name])?$this->dependence[$name]:array();
         in_array($this->default,$depends) or $depends[]=$this->default;
         if($depends && $type){
             foreach($depends as $k=>$depend){
