@@ -38,6 +38,7 @@ use app\models\Test;
 
 class DjqController extends Controller{
     public function actionIndex(){
+        echo "haha";exit;
         echo "<pre>";
         print_r($_COOKIE);exit;
         $cookies=Yii::$app->request->getCookies();
