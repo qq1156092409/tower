@@ -38,13 +38,7 @@ use app\models\Test;
 
 class DjqController extends Controller{
     public function actionIndex(){
-        echo "haha";exit;
-        echo "<pre>";
-        print_r($_COOKIE);exit;
-        $cookies=Yii::$app->request->getCookies();
-        print_r($cookies);exit;
-//        echo "<pre>";
-//        print_r(Yii::$app->user);
+        echo "djq-index";
         Yii::$app->end();
         return $this->render("djq", [
         ]);

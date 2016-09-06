@@ -66,7 +66,7 @@ $request = Yii::$app->request;
         switch($sectionID){
             case G::DISCUSS : echo $this->render("_sectionDiscusses",["discusses"=>$discusses,"project"=>$model]);break;
             case G::TASK : echo $this->render("_sectionTasks",["items"=>$items,"project"=>$model]);break;
-            case G::FILE : echo $this->render("_sectionFiles",["multiples"=>$multiples,"project"=>$model]);break;
+            case G::FILE : echo $this->render("_sectionFiles",["multiples"=>$multiples,"project"=>$model,"currentDir"=>null]);break;
             case G::DOC : echo $this->render("_sectionDocs",["docs"=>$docs,"project"=>$model]);break;
             case G::EVENT : echo $this->render("_sectionEvents",["events"=>$events,"project"=>$model]);break;
             default : break;

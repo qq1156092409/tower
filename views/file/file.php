@@ -108,7 +108,40 @@ JsManager::instance()->registers(["js/models/yii.file.js"]);
 
 </div>
 
-<?=$this->render("/commons/_targetActions",["model"=>$file])?>
+<div class="detail-star-action">
+    <a href="/projects/c96929b616cd4100a6225ea090264459/uploads/f3661947c20946d39963df01dad1dc4d/star?muid=f3661947c20946d39963df01dad1dc4d" class="detail-action detail-action-star" data-itemid="2064354" data-itemtype="Upload" data-loading="true" data-method="post" data-remote="true" rel="nofollow" title="关注">关注</a>
+</div>
+<div class="detail-actions">
+    <div class="item item-download">
+        <a href="https://attachments.tower.im/tower/8f750c95232d477883f030dc30926c35?download=true&amp;filename=tower.sql" class="detail-action detail-action-download">下载</a>
+    </div>
+
+    <div class="item">
+        <a href="javascript:;" class="detail-action detail-action-edit">编辑</a>
+    </div>
+
+    <div class="item detail-action-move" data-visible-to="creator,admin">
+        <a href="javascript:;" class="detail-action">移动</a>
+
+        <div class="confirm">
+            <form class="form form-move" action="/projects/c96929b616cd4100a6225ea090264459/uploads/f3661947c20946d39963df01dad1dc4d/move" method="post" data-remote="true">
+                <p class="title">移动文件到项目</p>
+                <p>
+                    <select data-project="c96929b616cd4100a6225ea090264459" class="choose-projects loading"></select>
+                    <input type="hidden" name="target_project_guid">
+                </p>
+                <p>
+                    <button type="submit" class="btn btn-mini" disabled="" data-disable-with="正在移动...">移动</button>
+                    <button type="button" class="btn btn-x cancel">取消</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div class="item" data-visible-to="creator,admin">
+        <a href="/projects/c96929b616cd4100a6225ea090264459/uploads/f3661947c20946d39963df01dad1dc4d/destroy" class="detail-action detail-action-del" data-confirm="确定要删除这个文件吗？" data-goto="/projects/c96929b616cd4100a6225ea090264459/attachments" data-method="post" data-remote="true" data-stack-replace="true" rel="nofollow">删除</a>
+    </div>
+</div>
 <div class="comments streams">
     <?php if($file->operations){
         foreach($file->operations as $operation){

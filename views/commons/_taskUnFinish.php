@@ -30,8 +30,8 @@ use yii\widgets\ActiveForm;
             </div>
             <input type="checkbox" name="todo-done" class="checkbox-input" style="display: none;">
         </div>
-        <span class="runner <?=$model->status==\app\models\Task::RUNNING?"on":""?>" title="<?=$model->user->activeName?>正在做这条任务">
-            <img alt="<?=$model->user->activeName?>" class="avatar" src="public/b77fe6a1d67e4fc1863e3b860ca0815b">
+        <span class="runner <?=$model->status==\app\models\Task::RUNNING?"on":""?>" title="<?=$model->user?$model->user->activeName:""?>正在做这条任务">
+            <img alt="<?=$model->user?$model->user->activeName:""?>" class="avatar" src="public/b77fe6a1d67e4fc1863e3b860ca0815b">
         </span>
         <span class="todo-content">
             <span class="raw"><?=$model->name?></span>

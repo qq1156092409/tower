@@ -92,7 +92,55 @@ JsManager::instance()->registers([
     } ?>
 </div>
 
-    <?=$this->render("/commons/_targetActions",["model"=>$model])?>
+    <div class="detail-star-action">
+        <a href="/projects/c96929b616cd4100a6225ea090264459/todos/5f546fc3bce649a381c06ba2de7e07da/star?muid=5f546fc3bce649a381c06ba2de7e07da" class="detail-action detail-action-star" data-itemid="10979713" data-itemtype="Todo" data-loading="true" data-method="post" data-remote="true" rel="nofollow" title="关注">关注</a>
+    </div>
+    <div class="detail-actions">
+        <div class="item">
+            <a href="/projects/c96929b616cd4100a6225ea090264459/todos/5f546fc3bce649a381c06ba2de7e07da/edit" class="detail-action detail-action-edit" data-loading="true" data-method="get" data-remote="true" data-request-members="c96929b616cd4100a6225ea090264459">编辑</a>
+        </div>
+
+        <div class="item detail-action-copy-todo" data-visible-to="creator,admin">
+            <a href="javascript:;" class="detail-action detail-action-todo-copy">复制</a>
+            <div class="confirm">
+                <form class="form-todo-copy" action="/projects/c96929b616cd4100a6225ea090264459/todos/5f546fc3bce649a381c06ba2de7e07da/copy" method="post" data-remote="">
+                    <p class="title">复制任务到当前任务清单</p>
+                    <p>
+                        <input type="number" placeholder="复制数量[1~50]" min="1" max="50" name="count" id="count">
+                    </p>
+                    <p>
+                        <button type="submit" class="btn btn-mini" data-disable-with="正在复制...">复制</button>
+                        <button type="button" class="btn btn-x cancel">取消</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="item detail-action-move" data-visible-to="creator,admin">
+            <a href="javascript:;" class="detail-action detail-action-todo">移动</a>
+            <div class="confirm">
+                <form class="form form-move" action="/projects/c96929b616cd4100a6225ea090264459/todos/5f546fc3bce649a381c06ba2de7e07da/move" method="post" data-remote="">
+                    <p class="title">移动任务到项目</p>
+                    <p>
+                        <select data-project="c96929b616cd4100a6225ea090264459" class="choose-projects loading"></select>
+                        <input type="hidden" name="tpuid">
+                    </p>
+                    <p>
+                        <select data-todolist="fe4c11843b7343c0986f7bcaab8e1c84" class="choose-todolists"></select>
+                        <input type="hidden" name="tluid">
+                    </p>
+                    <p>
+                        <button type="submit" class="btn btn-mini" disabled="" data-disable-with="正在移动...">移动</button>
+                        <button type="button" class="btn btn-x cancel">取消</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="item" data-visible-to="creator,admin">
+            <a href="javascript:;" class="detail-action detail-action-del">删除</a>
+        </div>
+    </div>
 
     <div class="comment comment-form new">
         <a class="avatar-wrap" target="_blank" href="/members/5ee2cb7e11e84bc2a5f8a627a14b46fe">

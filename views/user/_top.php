@@ -6,6 +6,7 @@ use yii\helpers\Url;
  * @var $userLog UserLog
  * @var $flag int
  */
+isset($flag) or $flag=1;
 $flag>0 or $flag=1;
 ?>
 <div class="member-info">

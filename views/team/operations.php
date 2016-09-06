@@ -40,7 +40,7 @@ JsManager::instance()->registers([
         } ?>
     </div>
         <?php if($hasMore){ ?>
-        <a href="javascript:;" id="btn-load-more" class="btn-operation-more" data-offset="<?=$limit?>" style="display: block;" data-url="<?=Url::to(["","id"=>$teamID,"userID"=>$user->id])?>">加载更多内容</a>
+        <a href="javascript:;" id="btn-load-more" class="btn-operation-more" data-offset="<?=$limit?>" style="display: block;" data-url="<?=Url::to(["","id"=>$teamID,"userID"=>isset($user)?$user->id:null])?>">加载更多内容</a>
         <?php } ?>
     <?php }else{ ?>
     <div class="init init-events-filter">
@@ -73,7 +73,7 @@ JsManager::instance()->registers([
                         "id"=>$teamID,
                     ])?>">所有成员</li>
                     <?php foreach($team->userTeams as $userTeam){ ?>
-                    <li class="<?=$userTeam->userID==$user->id?"selected":""?>" data-user-id="<?= $userTeam->user->id?>" data-subgroup-id="<?=$userTeam->subgroupID?>" data-url="<?=Url::to([
+                    <li class="<?=(isset($user)&&$userTeam->userID==$user->id)?"selected":""?>" data-user-id="<?= $userTeam->user->id?>" data-subgroup-id="<?=$userTeam->subgroupID?>" data-url="<?=Url::to([
                         "team/operations",
                         "id"=>$teamID,
                         "userID"=>$userTeam->user->id
