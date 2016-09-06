@@ -38,29 +38,21 @@ use app\models\Test;
 
 class DjqController extends Controller{
     public function actionIndex(){
-        $filename=Yii::getAlias("@app/web/temp/370.gif");
-        ImageHelper::createThumbnail($filename,ImageHelper::getSmallFilename($filename));
-
+        echo "<pre>";
+        print_r($_COOKIE);exit;
+        $cookies=Yii::$app->request->getCookies();
+        print_r($cookies);exit;
+//        echo "<pre>";
+//        print_r(Yii::$app->user);
         Yii::$app->end();
         return $this->render("djq", [
         ]);
     }
     public function actionRedis(){
         $redis=new \Redis();
-        $redis->connect("127.0.0.1",6379);
-        if(Yii::$app->user->isGuest){
-            echo "guest";
-            Yii::$app->end();
-        }
-        $key="user-".Yii::$app->user->id;
-        if($redis->exists($key)){
-            echo "exists";
-            $redisUser=$redis->get("user-".Yii::$app->user->id);
-            Yii::$app->user->setIdentity(unserialize($redisUser));
-        }else{
-            echo "not-exists";
-            $redis->set($key,serialize(Yii::$app->user->identity));
-        }
+        $redis->connect("120.25.240.36",6379);
+//        $redis->set("haha", "haha".date("Y-m-d H:i:s"));
+        echo $redis->get("haha");
     }
     public function actionTransaction(){
         $transaction=Yii::$app->db->beginTransaction();

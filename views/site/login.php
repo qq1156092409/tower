@@ -27,7 +27,6 @@ JsManager::instance()->registers(["js/models/yii.user.js",]);
     <meta content="authenticity_token" name="csrf-param">
     <meta content="70QA0kMWFE/YdH9mNwJCyMa9GSLLEkz5XU9re+SgKpY=" name="csrf-token">
     <link href="public/application-404f5efaeb2aead3434d85ff01eddcef.css" media="all" rel="stylesheet" type="text/css">
-    <script src="<?=Url::to("js/jquery-2.1.1.js")?>"></script>
     <?php $this->head() ?>
 </head>
 <body class="win">
